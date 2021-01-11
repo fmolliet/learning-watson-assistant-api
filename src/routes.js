@@ -1,6 +1,10 @@
-const { Router } = require('express');
+import express from 'express'
 
+import WorkspaceController from './controllers/WorkspaceController.js'
 
-const routes = Router(); 
+const routes = express.Router()
 
-module.exports = routes;
+routes.get('/skills', WorkspaceController.index)
+    .delete('/skills', WorkspaceController.delete)
+
+export default routes

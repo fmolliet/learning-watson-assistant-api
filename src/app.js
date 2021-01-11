@@ -1,16 +1,17 @@
-const express = require('express');
-const cors    = require('cors');
-const morgan  = require('morgan');
-const dotenv  = require('dotenv').config();
+import express from 'express'
+import cors    from 'cors'
+import morgan  from 'morgan'
+import dotenv  from 'dotenv'
+dotenv.config()
 
-const routes  = require('./routes');
+import routes from './routes.js'
 
-const app     = express();
+const app     = express()
 
-app.use(morgan('tiny'));
-app.use(cors());
-app.use(express.json());
+app.use(morgan('tiny'))
+app.use(cors())
+app.use(express.json())
 
-app.use(routes);
+app.use(routes)
 
-module.exports = app;
+export default app

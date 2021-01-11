@@ -1,5 +1,9 @@
-const AssistantV1 = require('ibm-watson/assistant/v1');
-const { IamAuthenticator } = require('ibm-watson/auth');
+import AssistantV1   from'ibm-watson/assistant/v1.js';
+import authenticator from 'ibm-watson/auth/index.js'
+import dotenv from 'dotenv'
+dotenv.config()
+
+const { IamAuthenticator } = authenticator
 
 const auth = {
     version: process.env.IBM_VERSION,
@@ -10,4 +14,4 @@ const auth = {
     disableSslVerification: true,
 }
 
-module.exports = new AssistantV1(auth);
+export default new AssistantV1(auth);

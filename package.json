@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "ibm-watson": "6.0.0",
     "morgan": "^1.10.0"
@@ -16,8 +18,8 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "dev"  : "nodemon src/server.js -e js,css,pug",
-    "test" : "jest"
+    "start": "node --experimental-modules src/server.js",
+    "dev": "nodemon --experimental-modules src/server.js -e js,css,pug",
+    "test": "jest"
   }
 }
