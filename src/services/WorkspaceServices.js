@@ -1,4 +1,4 @@
-import assistant from '../utils/AssistantV1.js';
+import assistant from './AssistantV1.js';
     
 class WorkspaceServices {
     
