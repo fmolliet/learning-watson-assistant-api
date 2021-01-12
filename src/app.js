@@ -1,17 +1,26 @@
-import express from 'express'
-import cors    from 'cors'
-import morgan  from 'morgan'
-import dotenv  from 'dotenv'
-dotenv.config()
+// express
+import express from 'express';
+import cors    from 'cors';
+import morgan  from 'morgan';
+import dotenv  from 'dotenv';
 
-import routes from './routes.js'
+const { config } = dotenv;
 
-const app     = express()
+import routes     from './routes.js';
 
-app.use(morgan('tiny'))
-app.use(cors())
-app.use(express.json())
+class App {
+    constructor() {
+        this.express = express();
+        this.middlewares();
+        config();
+    }
+    
+    middlewares(){
+        this.express.use(morgan('tiny'));
+        this.express.use(express.json());
+        this.express.use(cors());
+        this.express.use('/', routes);
+    }
+}
 
-app.use(routes)
-
-export default app
+export default new App().express;

@@ -1,10 +1,12 @@
-import express from 'express'
+import express from 'express';
+// controllers
+import WorkspaceController from './controllers/WorkspaceController.js';
 
-import WorkspaceController from './controllers/WorkspaceController.js'
+const workspace = new WorkspaceController();
 
-const routes = express.Router()
+const routes = express.Router();
 
-routes.get('/skills', WorkspaceController.index)
-    .delete('/skills', WorkspaceController.delete)
+routes.get('/skills', workspace.index)
+    .delete('/skills', workspace.delete);
 
-export default routes
+export default routes;
